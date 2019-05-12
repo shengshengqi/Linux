@@ -55,8 +55,7 @@ void *receive(void *a)
             buf.mtype=2;
             strcpy(buf.mtext,"over1");//send the response
             msgsnd(msgid,&buf,sizeof(buf.mtext),0);
-        }
-        if(strcmp(buf.mtext,"end2") == 0)
+        }else if(strcmp(buf.mtext,"end2") == 0)
         {
             flag=flag+1;
             buf.mtype=2;
@@ -137,8 +136,7 @@ int main()
     sem_init(&empty,0,1);
     sem_init(&mutex,0,1);
 
-    // ֻҪkey����0������ͬһ����Ϣ����
-    //S_IRUSR|S_IWUSR��allow user to read and write
+    //S_IRUSR|S_IWUSR:allow user to read and write
     if((msgid = msgget(key, S_IRUSR|S_IWUSR)) == -1) {
         printf("Create Message Queue Error\n");
         exit(0);
