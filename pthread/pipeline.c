@@ -1,20 +1,3 @@
-// int pipeSize(){//计算管道长度，原理是写满然后读出来
-//   int ret,count=0,filedes[2];  
-//   pipe(filedes);//filedes[2]是一个输出参数，它返回2个文件描述符，其中filedes[0]用于读管道、filedes[1]用于写管道。
-//     fcntl(filedes[1],F_SETFL,O_NONBLOCK); //系统调用，将管道设置为非阻塞方式
-//                                             //F_SETFL设置给arg描述符状态标志,可以更改的几个标志是：O_APPEND， O_NONBLOCK，O_SYNC和O_ASYNC。
-//     while(1)  
-//     {  
-//         ret=write(filedes[1],"fff",1);//write  
-//         if(ret==-1)  break;   //full
-//         count++;  
-//     }  
-//     printf("pipe size is:%dB\n\n",count);
-//     close(filedes[0]);
-//     close(filedes[1]);
-//     return count;
-// }
-
 // /*如果发生错误，则返回错误*/
 // #define check_error(err)                                        \
 //     if(err < 0){                                                \
@@ -70,7 +53,7 @@ int main()
     err = pipe(fd);
     check_error(err);
 
-    pid_t temp;
+    //pid_t temp;
     pid[0] = fork();
     check_error(pid[0]);
     if (pid[0] == 0)

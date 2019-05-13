@@ -38,7 +38,7 @@ int main(){
     sem_close(empty);
     sem_unlink("empty_shm");
 
-    shmctl(shmid, IPC_RMID, shmptr);
+    shmctl(shmid, IPC_RMID, NULL);
 
     return 0;
 }
