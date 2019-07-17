@@ -11,6 +11,7 @@
 #include <sys/shm.h>
 #include <errno.h>
 
+//通过相同的KEY_NUM实现共享内存，此处1024可修改非固定。
 #define KEY_NUM 1024
 
 sem_t * full;

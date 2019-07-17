@@ -108,6 +108,7 @@ void *sender(void *a)
             sem_post(&mutex);
         }
     }
+    //循环等待，此处可使用信号量机制优化，但是我不想写了
     while (1)
     {
         ssize_t st = msgrcv(msgid,&buf,sizeof(buf.mtext),2,IPC_NOWAIT);

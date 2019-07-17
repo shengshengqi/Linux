@@ -29,6 +29,7 @@ int main(){
 
     sem_wait(full);
 
+    //确认接收后，释放信号量
     sem_close(mutex);
     sem_unlink("mutex_shm");
 
@@ -38,6 +39,7 @@ int main(){
     sem_close(empty);
     sem_unlink("empty_shm");
 
+    //释放共享内存
     shmctl(shmid, IPC_RMID, NULL);
 
     return 0;

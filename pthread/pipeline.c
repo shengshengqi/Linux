@@ -95,6 +95,7 @@ int main()
         exit(0);
     }
 
+    //waitpid可确保子进程结束
     waitpid(pid[0],NULL,WUNTRACED);
     waitpid(pid[1],NULL,WUNTRACED);
     waitpid(pid[2],NULL,WUNTRACED);

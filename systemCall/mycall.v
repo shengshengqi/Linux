@@ -1,3 +1,4 @@
+//此处的空格应该使用Tab建
 335     common  ssqsetnice              __x64_sys_ssqsetnice
 
 asmlinkage long sys_ssqsetnice(pid_t pid,int flag,int nicevalue,void __user * prio,void __user * nice);
